@@ -2,6 +2,7 @@ package com.raven.component;
 
 import com.raven.event.EventMenu;
 import com.raven.event.EventMenuSelected;
+import com.raven.event.EventShowPopupMenu;
 import com.raven.model.ModelMenu;
 import com.raven.swing.MenuAnimation;
 import com.raven.swing.MenuItem;
@@ -17,6 +18,10 @@ import net.miginfocom.swing.MigLayout;
 
 public class Menu extends javax.swing.JPanel {
 
+    public boolean isShowMenu() {
+        return showMenu;
+    }
+
     public void addEvent(EventMenuSelected event) {
         this.event = event;
     }
@@ -29,8 +34,13 @@ public class Menu extends javax.swing.JPanel {
         this.showMenu = showMenu;
     }
 
+    public void addEventShowPopup(EventShowPopupMenu eventShowPopup) {
+        this.eventShowPopup = eventShowPopup;
+    }
+
     private final MigLayout layout;
     private EventMenuSelected event;
+    private EventShowPopupMenu eventShowPopup;
     private boolean enableMenu = true;
     private boolean showMenu = true;
 
@@ -69,7 +79,7 @@ public class Menu extends javax.swing.JPanel {
             @Override
             public boolean menuPressed(Component com, boolean open) {
                 if (enableMenu) {
-                    if (showMenu) {
+                    if (isShowMenu()) {
                         if (open) {
                             new MenuAnimation(layout, com).openMenu();
                         } else {
@@ -77,12 +87,22 @@ public class Menu extends javax.swing.JPanel {
                         }
                         return true;
                     } else {
-                        System.out.println("Show pop up menu ( Menu is close )");
+                        eventShowPopup.showPopup(com);
                     }
                 }
                 return false;
             }
         };
+    }
+
+    public void hideallMenu() {
+        for (Component com : panel.getComponents()) {
+            MenuItem item = (MenuItem) com;
+            if (item.isOpen()) {
+                new MenuAnimation(layout, com, 500).closeMenu();
+                item.setOpen(false);
+            }
+        }
     }
 
     @SuppressWarnings("unchecked")

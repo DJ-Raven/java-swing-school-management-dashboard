@@ -14,7 +14,7 @@ public class Profile extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
 
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(129, 129, 129));
+        jLabel1.setForeground(new java.awt.Color(224, 224, 224));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/logo.png"))); // NOI18N
         jLabel1.setText(" School UI");
 
