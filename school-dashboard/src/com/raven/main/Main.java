@@ -4,9 +4,13 @@ import com.raven.component.Header;
 import com.raven.component.Menu;
 import com.raven.event.EventMenuSelected;
 import com.raven.event.EventShowPopupMenu;
+import com.raven.form.Form1;
+import com.raven.form.Form_Home;
 import com.raven.form.MainForm;
 import com.raven.swing.MenuItem;
 import com.raven.swing.PopupMenu;
+import com.raven.swing.icon.GoogleMaterialDesignIcons;
+import com.raven.swing.icon.IconFontSwing;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -38,6 +42,13 @@ public class Main extends javax.swing.JFrame {
             @Override
             public void menuSelected(int menuIndex, int subMenuIndex) {
                 System.out.println("Menu Index : " + menuIndex + " SubMenu Index " + subMenuIndex);
+                if (menuIndex == 0) {
+                    if (subMenuIndex == 0) {
+                        main.showForm(new Form_Home());
+                    } else if (subMenuIndex == 1) {
+                        main.showForm(new Form1());
+                    }
+                }
             }
         });
         menu.addEventShowPopup(new EventShowPopupMenu() {
@@ -91,6 +102,10 @@ public class Main extends javax.swing.JFrame {
                 }
             }
         });
+        //  Init google icon font
+        IconFontSwing.register(GoogleMaterialDesignIcons.getIconFont());
+        //  Start with this form
+        main.showForm(new Form_Home());
     }
 
     @SuppressWarnings("unchecked")
@@ -109,7 +124,7 @@ public class Main extends javax.swing.JFrame {
         bg.setLayout(bgLayout);
         bgLayout.setHorizontalGroup(
             bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1256, Short.MAX_VALUE)
+            .addGap(0, 1366, Short.MAX_VALUE)
         );
         bgLayout.setVerticalGroup(
             bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
