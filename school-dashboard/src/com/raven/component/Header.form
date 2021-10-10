@@ -24,7 +24,11 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="cmdMenu" min="-2" pref="38" max="-2" attributes="0"/>
-              <EmptySpace pref="453" max="32767" attributes="0"/>
+              <EmptySpace pref="362" max="32767" attributes="0"/>
+              <Component id="buttonBadges2" min="-2" pref="38" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+              <Component id="buttonBadges1" min="-2" pref="38" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jSeparator1" min="-2" pref="8" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -50,6 +54,8 @@
                   <Component id="cmdMenu" max="32767" attributes="0"/>
                   <Component id="pic" max="32767" attributes="0"/>
                   <Component id="jSeparator1" max="32767" attributes="0"/>
+                  <Component id="buttonBadges1" alignment="0" max="32767" attributes="0"/>
+                  <Component id="buttonBadges2" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -97,6 +103,28 @@
     <Component class="javax.swing.JSeparator" name="jSeparator1">
       <Properties>
         <Property name="orientation" type="int" value="1"/>
+      </Properties>
+    </Component>
+    <Component class="com.raven.swing.ButtonBadges" name="buttonBadges1">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="31" green="31" red="fa" type="rgb"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/com/raven/icon/notification.png"/>
+        </Property>
+        <Property name="badges" type="int" value="12"/>
+      </Properties>
+    </Component>
+    <Component class="com.raven.swing.ButtonBadges" name="buttonBadges2">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="e8" green="b2" red="3f" type="rgb"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/com/raven/icon/message.png"/>
+        </Property>
+        <Property name="badges" type="int" value="5"/>
       </Properties>
     </Component>
   </SubComponents>
