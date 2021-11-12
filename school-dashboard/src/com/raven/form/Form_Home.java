@@ -31,12 +31,20 @@ public class Form_Home extends javax.swing.JPanel {
         EventAction eventAction = new EventAction() {
             @Override
             public void delete(ModelStudent student) {
-                showMessage("Delete Student : " + student.getName());
+                if (showMessage("Delete Student : " + student.getName())) {
+                    System.out.println("User click OK");
+                } else {
+                    System.out.println("User click Cancel");
+                }
             }
 
             @Override
             public void update(ModelStudent student) {
-                showMessage("Update Student : " + student.getName());
+                if (showMessage("Update Student : " + student.getName())) {
+                    System.out.println("User click OK");
+                } else {
+                    System.out.println("User click Cancel");
+                }
             }
         };
         table1.addRow(new ModelStudent(new ImageIcon(getClass().getResource("/com/raven/icon/profile.jpg")), "Jonh", "Male", "Java", 300).toRowTable(eventAction));
@@ -77,9 +85,10 @@ public class Form_Home extends javax.swing.JPanel {
         noticeBoard.scrollToTop();
     }
 
-    private void showMessage(String message) {
+    private boolean showMessage(String message) {
         Message obj = new Message(Main.getFrames()[0], true);
         obj.showMessage(message);
+        return obj.isOk();
     }
 
     @SuppressWarnings("unchecked")
